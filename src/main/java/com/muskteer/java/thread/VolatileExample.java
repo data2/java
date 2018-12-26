@@ -5,44 +5,41 @@ public class VolatileExample {
     public static volatile int i = 10;
 
     public static void main(String[] args) throws InterruptedException {
-        final A a = new A();
-        Thread t1 = new Thread(new Runnable() {
+        final RMB rmb = new RMB();
+        new Thread(new Runnable() {
 
             @Override
             public void run() {
-                a.write();
+                rmb.get();
             }
-        });
+        }).start();
 
-        Thread t2 = new Thread(new Runnable() {
+        Thread.currentThread().sleep(1000);
+        new Thread(new Runnable() {
 
             @Override
             public void run() {
-                System.out.println(a.read());
+                rmb.set();
             }
-        });
-
-        t2.start();
-        Thread.sleep(1000);
-        t1.start();
+        }).start();
 
     }
 
 }
 
-class A {
+class RMB {
 
-    volatile long a = 0;
+    volatile long money = 99;
 
-    public long read() {
-        while (a != 1) {
-            System.out.println("不行");
+    public long get() {
+        while(money != 100){
+            System.out.println("没到100");
         }
-        System.out.println("行了");
-        return a;
+        System.out.println("100了");
+        return money;
     }
 
-    public void write() {
-        a += 1;
+    public void set() {
+        money = money + 1;
     }
 }

@@ -3,36 +3,31 @@ package com.muskteer.java.thread;
 public class SynchronizedExample {
 
     public static void main(String[] args) {
-        Counter counter = new Counter();
-        Thread threadA = new CounterThread(counter);
-        Thread threadB = new CounterThread(counter);
-
-        threadA.start();
-        threadB.start();
-    }
-}
-
-class Counter {
-    long count = 0;
-
-    public synchronized void add(long value) {
-        this.count += value;
-        System.out.println(this.count);
-    }
-}
-
-class CounterThread extends Thread {
-
-    protected Counter counter = null;
-
-    public CounterThread(Counter counter) {
-        this.counter = counter;
-    }
-
-    public void run() {
-        for (int i = 0; i < 10; i++) {
-            counter.add(1);
+        //synchronized可以对实例对象（实例方法）和类对象（静态方法）修饰
+        Person person = new Person("小一");
+        synchronized (person){
+            person.setName("小二");
+            person.getName();
         }
+        person.setName("小二");
+
     }
 }
+
+class Person{
+    String name;
+
+    public synchronized void setName(String name) {
+        this.name = name;
+    }
+
+    public Person(String name){
+        this.name = name;
+    }
+
+    public void getName(){
+        System.out.println(name);
+    }
+}
+
 
