@@ -1,6 +1,6 @@
 package com.muskteer.java.thread;
 
-public class VolatileTest {
+public class VolatileExample {
 
     public static volatile int i = 10;
 

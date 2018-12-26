@@ -1,5 +1,17 @@
 package com.muskteer.java.thread;
 
+public class SynchronizedExample {
+
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+        Thread threadA = new CounterThread(counter);
+        Thread threadB = new CounterThread(counter);
+
+        threadA.start();
+        threadB.start();
+    }
+}
+
 class Counter {
     long count = 0;
 
@@ -24,14 +36,3 @@ class CounterThread extends Thread {
     }
 }
 
-public class SynchronizedTest {
-
-    public static void main(String[] args) {
-        Counter counter = new Counter();
-        Thread threadA = new CounterThread(counter);
-        Thread threadB = new CounterThread(counter);
-
-        threadA.start();
-        threadB.start();
-    }
-}

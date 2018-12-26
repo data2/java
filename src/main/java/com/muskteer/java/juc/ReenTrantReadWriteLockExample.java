@@ -5,7 +5,7 @@
  * Copyright MuskteerAthos@gmail.com
  * @author MuskteerAthos
  */
-package com.muskteer.java.concurrency.lock;
+package com.muskteer.java.juc;
 
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -16,14 +16,14 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * 是其内部类ReadLock和WriteLock实现了Lock的接口</p>
  * 
  */
-public class ReenTrantReadWriteLockTest {
+public class ReenTrantReadWriteLockExample {
     
     ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
     String obj = new String("shareContent");
 
     public static void main(String[] args) {
         ExecutorService es = Executors.newFixedThreadPool(20);
-        ReenTrantReadWriteLockTest test = new ReenTrantReadWriteLockTest();
+        ReenTrantReadWriteLockExample test = new ReenTrantReadWriteLockExample();
         for(int  i = 0 ; i < 10 ; i ++ ){
             es.submit(test.new GetRunnable());
             if(i < 5){

@@ -5,7 +5,7 @@
  * Copyright MuskteerAthos@gmail.com
  * @author MuskteerAthos
  */
-package com.muskteer.java.concurrency.framework;
+package com.muskteer.java.juc;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;

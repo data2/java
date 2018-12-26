@@ -1,12 +1,9 @@
-package com.muskteer.java.produceconsumer;
+package com.muskteer.java.juc.produceconsumer;
 
 import java.util.PriorityQueue;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockConditionImpl {

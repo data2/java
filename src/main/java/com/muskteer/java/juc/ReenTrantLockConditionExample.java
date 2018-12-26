@@ -5,12 +5,12 @@
  * Copyright MuskteerAthos@gmail.com
  * @author MuskteerAthos
  */
-package com.muskteer.java.concurrency.lock;
+package com.muskteer.java.juc;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ReenTrantLockConditionTest {
+public class ReenTrantLockConditionExample {
 
     /**
      * @param args

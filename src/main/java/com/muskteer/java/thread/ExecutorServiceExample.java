@@ -1,39 +1,29 @@
 package com.muskteer.java.thread;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
- * 
  * @author wanglei
- *
- *
- *         Executor
- *         框架包括：线程池，Executor，Executors，ExecutorService，CompletionService
- *         ，Future，Callable 等。
- *
- *         任务分两类：一类是实现了 Runnable 接口的类，一类是实现了 Callable 接口的类。 两者都可以被
- *         ExecutorService 执行，但是 Runnable 任务没有返回值，而 Callable 任务有返回值。 并且 Callable
- *         的 call()方法只能通过 ExecutorService 的 submit(Callable task) 方法来执行，并且返回一个
- *         Future，是表示任务等待完成的 Future。
- *
- *
- *         Runnable 不会返回结果，并且无法抛出经过检查的异常而 Callable 又返回结果，而且当获取返回结果时可能会抛出异常。
+ * <p>
+ * <p>
+ * Executor
+ * 框架包括：线程池，Executor，Executors，ExecutorService，CompletionService
+ * ，Future，Callable 等。
+ * <p>
+ * 任务分两类：一类是实现了 Runnable 接口的类，一类是实现了 Callable 接口的类。 两者都可以被
+ * ExecutorService 执行，但是 Runnable 任务没有返回值，而 Callable 任务有返回值。 并且 Callable
+ * 的 call()方法只能通过 ExecutorService 的 submit(Callable task) 方法来执行，并且返回一个
+ * Future，是表示任务等待完成的 Future。
+ * <p>
+ * <p>
+ * Runnable 不会返回结果，并且无法抛出经过检查的异常而 Callable 又返回结果，而且当获取返回结果时可能会抛出异常。
  */
-public class ExecutorStrutsTest {
-    public static void main(String[] args) {
+public class ExecutorServiceExample {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         // 创建固定大小的线程池
         ExecutorService es = Executors.newFixedThreadPool(5);
 
         // runnable
-        @SuppressWarnings("rawtypes")
         Future f = es.submit(new Runnable() {
 
             @Override
@@ -53,13 +43,7 @@ public class ExecutorStrutsTest {
                 return "call";
             }
         });
-        try {
-            System.out.println(f1.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+        System.out.println(f1.get());
 
         // 创建自定义线程池
         BlockingQueue<Runnable> bqueue = new ArrayBlockingQueue<Runnable>(20);

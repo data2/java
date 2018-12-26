@@ -6,17 +6,17 @@ package com.muskteer.java.thread;
  * @author wanglei
  *
  */
-public class SingletonModuleTest {
+public class SingletonModuleExample {
     /**
      * synchronized是作用在对象上的 double-check
      */
-    private static SingletonModuleTest _instance;
+    private static SingletonModuleExample _instance;
 
-    public static SingletonModuleTest getInstance() {
+    public static SingletonModuleExample getInstance() {
         if (_instance == null) {
-            synchronized (SingletonModuleTest.class) {
+            synchronized (SingletonModuleExample.class) {
                 if (_instance == null) {
-                    _instance = new SingletonModuleTest();
+                    _instance = new SingletonModuleExample();
                 }
             }
         }

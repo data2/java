@@ -5,12 +5,12 @@
  * Copyright MuskteerAthos@gmail.com
  * @author MuskteerAthos
  */
-package com.muskteer.java.concurrency.container;
+package com.muskteer.java.juc;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class ConcurrentHashMapTest {
+public class ConcurrentHashMapExample {
 
     public static void main(String[] args) {
         new ConcurrentHashMap<String, Object>();
